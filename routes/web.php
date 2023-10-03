@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\UsuarioController;
 
 
 /*
@@ -26,3 +27,11 @@ Route::delete('/alunos/{id}',[AlunoController::class, 'deleteAluno']);
 Route::put('/alunos/{id}',[AlunoController::class, 'updateAluno']);
 
 
+// Rota de Usuarios
+Route::post('/usuario',[UsuarioController::class, 'create']);
+Route::get('/usuario',[UsuarioController::class, 'store']);
+Route::get('/usuario/{id}',[UsuarioController::class, 'storeById']);
+Route::put('/usuario/{id}',[UsuarioController::class, 'update']);
+
+
+// Rota de Campo
