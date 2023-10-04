@@ -12,6 +12,10 @@ use App\Domain\Usuario\UsuarioRepository;
 use App\Domain\Usuario\EloquentUsuarioRepository;
 use App\Domain\Usuario\UsuarioService;
 
+use App\Domain\Campo\CampoRepository;
+use App\Domain\Campo\EloquentCampoRepository;
+use App\Domain\Campo\CampoService;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,11 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
-        $this->app->bind(AlunoRepository::class, EloquentAlunoRepository::class);
-        $this->app->bind(AlunoService::class, function ($app) {
-            return new AlunoService($app->make(AlunoRepository::class));
-        });
 
         //
         $this->app->bind(UsuarioRepository::class, EloquentUsuarioRepository::class);
@@ -32,7 +31,11 @@ class AppServiceProvider extends ServiceProvider
             return new UsuarioService($app->make(UsuarioRepository::class));
         });
 
-
+        //
+        $this->app->bind(CampoRepository::class, EloquentCampoRepository::class);
+        $this->app->bind(CampoService::class, function ($app) {
+            return new CampoService($app->make(CampoRepository::class));
+        });
     }
     /**
      * Bootstrap any application services.

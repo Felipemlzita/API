@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\CampoController;
 use App\Http\Controllers\UsuarioController;
 
 
@@ -20,12 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/alunos', [AlunoController::class, 'insertAluno']);
-Route::get('/alunos', [AlunoController::class, 'getAluno']);
-Route::get('/alunos/{id}',[AlunoController::class, 'getAlunoById']);
-Route::delete('/alunos/{id}',[AlunoController::class, 'deleteAluno']);
-Route::put('/alunos/{id}',[AlunoController::class, 'updateAluno']);
-
 
 // Rota de Usuarios
 Route::post('/usuario',[UsuarioController::class, 'create']);
@@ -35,3 +30,5 @@ Route::put('/usuario/{id}',[UsuarioController::class, 'update']);
 
 
 // Rota de Campo
+Route::post('/campo',[CampoController::class, 'create']);
+Route::get('/campo',[CampoController::class, 'store']);
